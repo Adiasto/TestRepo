@@ -6,6 +6,11 @@ import { LoggedIn } from './auth/auth-gaurd.service';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'drivers',
+    pathMatch: 'full'
+  },
+  {
     path: 'login',
     component: LoginComponent,
   },
