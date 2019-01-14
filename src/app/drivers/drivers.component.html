@@ -1,0 +1,61 @@
+<div>
+  <form (ngSubmit)="submitForm()" [formGroup]="driverForm">
+    <table>
+      <th>
+        FirstName
+      </th>
+      <th>
+        LastName
+      </th>
+      <th>
+        DOB
+      </th>
+      <th>
+        License Number
+      </th>
+      <th>
+        Email
+      </th>
+      <th>
+        Phone number
+      </th>
+      <th>
+        License Expiry data
+      </th>
+      <th>
+        Edit
+      </th>
+      <tr>
+        <td>
+          <input formControlName="firstName" type="text" required /></td>
+        <td>
+          <input formControlName="lastName" type="text" required /></td>
+        <td>
+          <input formControlName="dob" type="date" required /></td>
+        <td>
+          <input formControlName="licenseNo" type="text" required /></td>
+        <td>
+          <input formControlName="email" type="email" required /></td>
+        <td>
+          <input formControlName="phoneNumber" type="number" required /></td>
+        <td>
+          <input formControlName="licenseExpiration" type="date" required /></td>
+        <td>
+          <button type="submit" class="submit-button" [disabled]="driverForm.invalid">{{action}}</button></td>
+      </tr>
+      <tr *ngFor="let driver of allDrivers;let i=index;">
+        <td>{{driver?.firstName}}</td>
+        <td>{{driver?.lastName}}</td>
+        <td>{{driver?.dob}}</td>
+        <td>{{driver?.licenseNo}}</td>
+        <td>{{driver?.email}}</td>
+        <td>{{driver?.phoneNumber}}</td>
+        <td>{{driver?.licenseExpiration}}</td>
+        <td>
+          <a class="clickable" (click)="editInfo(i)">click</a>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+</div>
